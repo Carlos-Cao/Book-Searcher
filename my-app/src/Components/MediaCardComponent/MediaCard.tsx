@@ -9,6 +9,9 @@ import './MediaCard.css';
 interface IMediaCardProps {
     ImageUrl: string | undefined;
     title: string | undefined;
+    authors: [] | undefined;
+    published: string | undefined;
+    publisher: string | undefined;
     Description: string | undefined;
 
 }
@@ -27,6 +30,30 @@ function MediaCard(props: IMediaCardProps) {
                             className="MediaCardTitle"
                         >
                             {props.title}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="secondary"
+                            component="p"
+                            className="MediaCardTitle"
+                        >
+                            By {props.authors}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="initial"
+                            component="p"
+                            className="MediaCardTitle"
+                        >
+                            Date published: {props.published}
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            color="initial"
+                            component="p"
+                            className="MediaCardTitle"
+                        >
+                            Published by: {props.publisher}
                         </Typography>
                         <Typography
                             variant="body2"
