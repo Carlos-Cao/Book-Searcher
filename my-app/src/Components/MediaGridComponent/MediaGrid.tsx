@@ -4,7 +4,6 @@ import { Grid } from '@material-ui/core';
 import './MediaGrid.css';
 
 interface IState {
-    selfLink: any;
     volumeInfo: any;
 }
 
@@ -13,7 +12,7 @@ interface IMediaGridProps {
 }
 function MediaGrid(props: IMediaGridProps) {
     const [ItemArray, setItemArray] = useState<IState[]>
-        ([{ selfLink: "", volumeInfo: {} }
+        ([{ volumeInfo: {} }
         ]);
 
     useEffect(() => {
@@ -31,6 +30,7 @@ function MediaGrid(props: IMediaGridProps) {
     ItemArray.forEach((el: IState, i: Number) => {
         if (!el || !el.volumeInfo.imageLinks) {
             return;
+
         }
 
         Cards.push(
@@ -45,6 +45,9 @@ function MediaGrid(props: IMediaGridProps) {
                 <MediaCard
                     ImageUrl={el.volumeInfo.imageLinks.thumbnail}
                     title={el.volumeInfo.title}
+                    authors={el.volumeInfo.authors}
+                    published={el.volumeInfo.publishedDate}
+                    publisher={el.volumeInfo.publisher}
                     Description={el.volumeInfo.description}
                 />
             </Grid>)
