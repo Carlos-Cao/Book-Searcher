@@ -17,7 +17,7 @@ function MediaGrid(props: IMediaGridProps) {
         ]);
 
     useEffect(() => {
-        fetch("https://www.googleapis.com/books/v1/volumes?q=" + props.SearchQuery)
+        fetch("https://www.googleapis.com/books/v1/volumes?q=" + props.SearchQuery + "&startIndex=0&maxResults=30")
             .then(response => response.json())
             .then(response => {
                 console.log(response.totalItems)
